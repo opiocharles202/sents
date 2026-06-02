@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 import type { Product } from "@/app/data/products";
 
 interface ProductCardProps {
@@ -8,7 +11,8 @@ interface ProductCardProps {
 
 export default function ProductCard({ product, index }: ProductCardProps) {
   return (
-    <article
+    <Link
+      href={`/products/${product.id}`}
       id={`product-${product.id}`}
       className="group relative flex flex-col rounded-2xl bg-card border border-border overflow-hidden hover:border-gold-300/40 hover:shadow-xl hover:shadow-gold-500/5 transition-all duration-500"
       style={{ animationDelay: `${index * 0.1}s` }}
@@ -36,6 +40,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
       <button
         className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/80 dark:bg-cream-900/80 backdrop-blur-sm border border-border opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:bg-gold-50 dark:hover:bg-gold-950/50 hover:border-gold-300"
         aria-label={`Add ${product.name} to cart`}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
       >
         <svg className="w-4 h-4 text-foreground" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
@@ -118,6 +123,6 @@ export default function ProductCard({ product, index }: ProductCardProps) {
           </div>
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

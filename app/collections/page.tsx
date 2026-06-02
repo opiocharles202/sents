@@ -1,7 +1,23 @@
 import { Suspense } from "react";
 import CollectionsClient from "@/app/components/collections/CollectionsClient";
 
-export const unstable_instant = { prefetch: "static" };
+export const unstable_instant = {
+  prefetch: "runtime",
+  samples: [
+    {
+      searchParams: {
+        family: "All",
+        bestsellers: "false",
+      },
+    },
+    {
+      searchParams: {
+        family: null,
+        bestsellers: null,
+      },
+    },
+  ],
+};
 
 export const metadata = {
   title: "Collections | Scents — Luxury Perfume",

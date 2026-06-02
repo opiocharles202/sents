@@ -77,7 +77,7 @@ export default function Navbar() {
               { label: "Contact", href: "/contact" },
             ].map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full ${linkColor}`}
               >
@@ -180,7 +180,7 @@ export default function Navbar() {
               { label: "Contact", href: "/contact" },
             ].map((link) => (
               <a
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className="px-3 py-2.5 rounded-lg text-sm font-medium text-muted hover:text-foreground hover:bg-cream-100 dark:hover:bg-cream-900 transition-colors"
